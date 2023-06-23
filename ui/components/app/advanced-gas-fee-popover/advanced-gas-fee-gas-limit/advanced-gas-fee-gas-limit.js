@@ -5,11 +5,9 @@ import { bnGreaterThan, bnLessThan } from '../../../../helpers/utils/util';
 import { TextVariant } from '../../../../helpers/constants/design-system';
 import { useI18nContext } from '../../../../hooks/useI18nContext';
 import { MAX_GAS_LIMIT_DEC } from '../../../../pages/send/send.constants';
-import Button from '../../../ui/button';
-import FormField from '../../../ui/form-field';
 
 import { useAdvancedGasFeePopoverContext } from '../context';
-import { Text } from '../../../component-library';
+import { Text, ButtonLink, FormTextField } from '../../../component-library';
 
 const validateGasLimit = (gasLimit, minimumGasLimitDec) => {
   return bnLessThan(gasLimit, minimumGasLimitDec) ||
@@ -41,7 +39,7 @@ const AdvancedGasFeeGasLimit = () => {
 
   if (isEditing) {
     return (
-      <FormField
+      <FormTextField
         dataTestId="gas-limit-input"
         error={
           gasLimitError
@@ -69,14 +67,13 @@ const AdvancedGasFeeGasLimit = () => {
     >
       <strong>{t('gasLimitV2')}</strong>
       <span>{gasLimit}</span>
-      <Button
+      <ButtonLink
         data-testid="advanced-gas-fee-edit"
         className="advanced-gas-fee-gas-limit__edit-link"
         onClick={() => setEditing(true)}
-        type="link"
       >
         {t('edit')}
-      </Button>
+      </ButtonLink>
     </Text>
   );
 };

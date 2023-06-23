@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 
 import { I18nContext } from '../../../contexts/i18n';
-import FormField from '../../ui/form-field';
+import { FormTextField } from '../../component-library';
 import { getGasFormErrorText } from '../../../helpers/constants/gas';
 
 export default function AdvancedGasControls({
@@ -18,7 +18,7 @@ export default function AdvancedGasControls({
 
   return (
     <div className="advanced-gas-controls">
-      <FormField
+      <FormTextField
         titleText={t('gasLimit')}
         error={
           gasErrors?.gasLimit
@@ -35,7 +35,7 @@ export default function AdvancedGasControls({
         numeric
       />
       <>
-        <FormField
+        <FormTextField
           titleText={t('advancedGasPriceTitle')}
           titleUnit="(GWEI)"
           onChange={(value) => {

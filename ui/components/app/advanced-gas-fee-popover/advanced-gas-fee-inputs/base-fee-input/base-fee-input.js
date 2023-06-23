@@ -13,8 +13,7 @@ import { useGasFeeContext } from '../../../../../contexts/gasFee';
 import { useI18nContext } from '../../../../../hooks/useI18nContext';
 import { useUserPreferencedCurrency } from '../../../../../hooks/useUserPreferencedCurrency';
 import { useCurrencyDisplay } from '../../../../../hooks/useCurrencyDisplay';
-import Box from '../../../../ui/box';
-import FormField from '../../../../ui/form-field';
+import { Box, FormTextField } from '../../../../component-library';
 
 import { useAdvancedGasFeePopoverContext } from '../../context';
 import AdvancedGasFeeInputSubtext from '../../advanced-gas-fee-input-subtext';
@@ -109,7 +108,7 @@ const BaseFeeInput = () => {
 
   return (
     <Box className="base-fee-input" marginLeft={2} marginRight={2}>
-      <FormField
+      <FormTextField
         dataTestId="base-fee-input"
         error={baseFeeError ? t(baseFeeError) : ''}
         onChange={updateBaseFee}
